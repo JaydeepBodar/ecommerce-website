@@ -1,0 +1,57 @@
+.site-header{
+    background-color: #131921;
+    padding: 15px 0 0;
+    color: #f2f2f2;
+}
+.site-header .top-nav{
+    padding: 15px 0;
+}
+.site-header .c-user p{
+    margin-bottom: 0;
+}
+.site-header .c-user{
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+.site-header .user-link a{
+    color: #f2f2f2;
+    text-decoration: none;
+}
+.site-header .user-link{
+    display: flex;
+}
+.site-header .main-nav{
+    padding: 10px 0;
+    border-top: 1px solid #f2f2f2;
+}
+.site-header .quantity{
+    background-color: #f2f2f2;
+    color: #131921;
+    width: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 20px;
+    height: 20px;
+}
+.site-header .categories{
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+}
+.site-header .nav-link a{
+   text-decoration: none; 
+   padding: 0 20px;
+   color: #f2f2f2;
+}
+.site-header .menu-img{
+    padding-right: 10px;
+}
+.site-header .dropdown-toggle{
+    color: #f2f2f2 ;
+    border: 1px solid #f2f2f2;
+}
+.site-header .bottom-nav{
+    padding: 8px 0;
+    background-color: #232f3e;
+}
