@@ -1,6 +1,8 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
 import Blogcard from "../component/Blogcard";
+import Productcard from "../component/Productcard";
+import Specialproduct from "../component/Specialproduct";
 import "./styles/Home.css";
 const Home = () => {
   return (
@@ -96,7 +98,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="item-section-1">
+      <section className="item-section-1 common">
         <div className="container">
           <div className="company-promises">
             <div className="row">
@@ -281,7 +283,33 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="marquee-brand-section">
+      <section className="blog-section common">
+        <div className="container">
+          <div className="section-title">
+            <h2>Featured Products</h2>
+          </div>
+          <div className="row">
+            <Productcard />
+            <Productcard />
+            <Productcard />
+            <Productcard />
+          </div>
+        </div>
+      </section>
+      <section className="special-product-section common">
+      <div className="container">
+          <div className="section-title">
+            <h2>Featured Products</h2>
+          </div>
+          <div className="row">
+            <Specialproduct />
+            <Specialproduct />
+            <Specialproduct />
+            <Specialproduct />
+          </div>
+        </div>
+      </section>
+      <section className="marquee-brand-section common">
         <div className="container">
           <div className="brand-wrapper">
             <Marquee className="d-flex">
@@ -313,14 +341,17 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="blog-section">
+      <section className="blog-section common">
         <div className="container">
-            <div className="row">
+          <div className="section-title">
+            <h2>Our letest Blogs</h2>
+          </div>
+          <div className="row">
             <Blogcard />
-          <Blogcard />
-          <Blogcard />
-          <Blogcard />
-            </div>
+            <Blogcard />
+            <Blogcard />
+            <Blogcard />
+          </div>
         </div>
       </section>
     </React.Fragment>

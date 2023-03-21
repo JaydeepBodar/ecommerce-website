@@ -44,7 +44,6 @@
 }
 /* item-section-1 */
 .item-section-1{
-    background-color: #f5f5f7;
     padding: 40px 0;
 }
 .item-section-1 .item1-box{
@@ -85,7 +84,6 @@ border-right: 1px solid #ebe7e7;
 }
 /* marquee-brand-section */
 .marquee-brand-section{
-    background-color: #f5f5f7;
     padding: 40px 0;
 }
 .marquee-brand-section .brand-wrapper{
@@ -98,6 +96,22 @@ border-right: 1px solid #ebe7e7;
 }
 /* blog-section */
 .blog-section{
-    background-color: #f5f5f7;
     padding: 40px 0;
+}
+.common{
+    background-color: #f5f5f7;
+}
+.section-title{
+    padding: 15px 0;
+}
+.section-title h2{
+    font-weight: 600;
+    color: #131921;
+}
+/* special-product-section */
+.special-product-section{
+    padding: 40px 0;
+}
+.special-product-section .row{
+    row-gap: 20px;
 }
