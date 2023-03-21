@@ -1,0 +1,103 @@
+.banner-section{
+    padding: 40px 0;
+}
+.banner-box{
+    position: relative;
+}
+.banner-box .img-content{
+    position: absolute;
+    top: 35px;
+    left: 40px;
+}
+.banner-box img{
+    border-radius: 10px;
+}
+.banner-box .img-content p{
+    color: #c45e5e;
+}
+.banner-section .banner-site-box.row{
+    row-gap: 15px;
+}
+.banner-section .img-content-1{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+.banner-section .img-content-1 p{
+    color: #c45e5e;
+    font-size: 14px;
+}
+.banner-section .banner-btn{
+    width: 100%;
+    max-width: 120px;
+    text-align: center;
+    background-color: #2828b8;
+    letter-spacing: 1.5px;
+    padding: 8px 0;
+    margin-top: 20px;
+    text-align: center;
+    color: #f2f2f2;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    font-weight: 500;
+}
+/* item-section-1 */
+.item-section-1{
+    background-color: #f5f5f7;
+    padding: 40px 0;
+}
+.item-section-1 .item1-box{
+    display: flex;
+    column-gap: 15px;
+}
+.item-section-1 .item1-box p{
+    font-size: 12px;
+}
+.item-section-1 .item-img{
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+}
+.item-section-1 .product-box img{
+    width: 100px;
+    height: 100px;
+}
+.item-section-1 .product-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0 15px;
+}
+.item-section-1 .product-wrapper{
+    margin: 25px 0;
+    background-color: #fff;
+    padding: 30px 20px;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+/* .item-section-1 .product-wrapper .row{
+    row-gap: 20px;
+} */
+.item-section-1 .product-wrapper .col-lg-3{
+border-bottom: 1px solid #ebe7e7;
+border-right: 1px solid #ebe7e7;
+}
+/* marquee-brand-section */
+.marquee-brand-section{
+    background-color: #f5f5f7;
+    padding: 40px 0;
+}
+.marquee-brand-section .brand-wrapper{
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.marquee-brand-section .brand-box{
+    padding: 0 10px;
+}
+/* blog-section */
+.blog-section{
+    background-color: #f5f5f7;
+    padding: 40px 0;
+}
