@@ -133,10 +133,10 @@ const Header = () => {
                 </ul>
               </div>
               <div className="nav-link">
-                <NavLink to="/">Home</NavLink>
-                <NavLink to="/about">About</NavLink>
-                <NavLink to="/ourstore">Our Store</NavLink>
-                <NavLink to="/contact">contact</NavLink>
+                <Link to="/">Home</Link>
+                <Link to="/store">Our Store</Link>
+                <Link to="/blog">Blog</Link>
+                <Link to="/contact">contact</Link>
               </div>
             </div>
           </div>

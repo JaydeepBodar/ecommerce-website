@@ -1,0 +1,19 @@
+.blog-section .filter-card{
+    background-color: #fff;
+    padding: 10px 15px;
+    border-radius: 15px;
+}
+.blog-section .filter-title h4{
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: 500;
+}
+.blog-section .listview li{
+    list-style: none;
+    padding: 0;
+    font-size: 12px;
+}
+.blog-section{
+    background-color: #f5f5f7;
+    padding: 25px 0;
+}

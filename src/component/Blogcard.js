@@ -1,8 +1,10 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import './styles/Blogcard.css'
 const Blogcard = () => {
+  const location=useLocation()
   return (
-    <div className="col-lg-3">
+    <div className={location.pathname==='/blog' ? 'col-lg-6' : 'col-lg-3'}>
       <div className="blog-box">
         <div className="blog-img">
           <img src="images/blog-1.jpg" alt="blog-img" />

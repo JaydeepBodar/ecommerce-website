@@ -283,10 +283,10 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="blog-section common">
+      <section className="product-section common">
         <div className="container">
           <div className="section-title">
-            <h2>Featured Products</h2>
+            <h2>Our Products</h2>
           </div>
           <div className="row">
             <Productcard />
@@ -297,7 +297,7 @@ const Home = () => {
         </div>
       </section>
       <section className="special-product-section common">
-      <div className="container">
+        <div className="container">
           <div className="section-title">
             <h2>Featured Products</h2>
           </div>
@@ -306,6 +306,79 @@ const Home = () => {
             <Specialproduct />
             <Specialproduct />
             <Specialproduct />
+          </div>
+        </div>
+      </section>
+      <section className="popular-product-section common">
+        <div className="container">
+          <div className="section-title">
+            <h2>Our Popular Products</h2>
+          </div>
+          <div className="row">
+            <Productcard />
+            <Productcard />
+            <Productcard />
+            <Productcard />
+          </div>
+        </div>
+      </section>
+      <section className="famous-product-section common">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-3">
+              <div className="f-box position-relative">
+                <img
+                  src="images/two-smart-watches-similar-to-apple-watch-mm-space-gray-gold-aluminum-arranged-side-frontal-perspective-black-background-139445607.jpg"
+                  alt="smart-watches"
+                  style={{ width: "100%" }}
+                />
+                <div className="f-content text-white">
+                  <h6>iSmart Pro.</h6>
+                  <p>From $999.00 or $41.62/mo.</p>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-3">
+              <div className="f-box position-relative">
+                <img
+                  src="images/laptop.jpg"
+                  alt="laptops"
+                  style={{ width: "100%" }}
+                />
+                <div className="f-content text-dark">
+                  <h6>Laptops</h6>
+                  <p>600 nits display with 4k hd display</p>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-3">
+              <div className="f-box position-relative">
+                <img
+                  src="images/tab3.jpg"
+                  alt="smart-watches"
+                  style={{ width: "100%" }}
+                />
+                <div className="f-content text-dark">
+                  <h6>itab Pro.</h6>
+                  <p>500 nits display with 4k</p>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-3">
+              <div className="f-box position-relative">
+                <div className="img-wrapper">
+                  <img
+                    src="images/iphone-12-pro-blue-hero.jpg"
+                    alt="iphone12"
+                    style={{ width: "100%" }}
+                  />
+                </div>
+                <div className="f-content text-dark">
+                  <h6>iphone 12</h6>
+                  <p>800 nits display with best camera quality</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -43,9 +43,6 @@
     font-weight: 500;
 }
 /* item-section-1 */
-.item-section-1{
-    padding: 40px 0;
-}
 .item-section-1 .item1-box{
     display: flex;
     column-gap: 15px;
@@ -83,9 +80,6 @@ border-bottom: 1px solid #ebe7e7;
 border-right: 1px solid #ebe7e7;
 }
 /* marquee-brand-section */
-.marquee-brand-section{
-    padding: 40px 0;
-}
 .marquee-brand-section .brand-wrapper{
     background-color: #fff;
     border-radius: 15px;
@@ -95,10 +89,8 @@ border-right: 1px solid #ebe7e7;
     padding: 0 10px;
 }
 /* blog-section */
-.blog-section{
-    padding: 40px 0;
-}
 .common{
+    padding: 40px 0;
     background-color: #f5f5f7;
 }
 .section-title{
@@ -114,4 +106,19 @@ border-right: 1px solid #ebe7e7;
 }
 .special-product-section .row{
     row-gap: 20px;
+}
+/* famous-product-section */
+.f-content{
+    position: absolute;
+    top: 20px;
+    left: 15px;
+}
+.f-content p{
+    font-size: 14px;
+}
+.famous-product-section img{
+    height: 300px;
+    background-size: cover;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
