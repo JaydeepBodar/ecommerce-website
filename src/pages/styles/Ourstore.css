@@ -23,6 +23,9 @@
 .store-wrapper .filter-p label,.random-p-wrapper p{
     font-size: 12px;
 }
+.filter-p .form-group input{
+    width: auto;
+}
 .filter-p .form-group{
     display: flex;
     column-gap: 6px;

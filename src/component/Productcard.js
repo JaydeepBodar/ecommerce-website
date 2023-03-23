@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import "./styles/Productcard.css";
 const Productcard = ({ grid }) => {
   const location = useLocation();
+  console.log(location)
   return (
     <div className={location.pathname === "/store" ? `gr-${grid}` :'col-lg-3'}>
       <Link className="product-box">
