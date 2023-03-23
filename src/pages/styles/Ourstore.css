@@ -31,11 +31,11 @@
 .filter-p h5,.random-p-wrapper h5{
     font-size: 14px;
 }
-.color ul{
+.store-wrapper .color ul{
     column-gap: 10px;
     row-gap: 5px;
 }
-.color li{
+.store-wrapper .color li{
     list-style: none;
     padding: 0;
     width: 20px;

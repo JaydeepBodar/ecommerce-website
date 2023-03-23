@@ -87,7 +87,7 @@ const Footer = () => {
                     <Link to="">Refund Policy</Link>
                     <Link to="">Shoping policy</Link>
                     <Link to="">Terms of Service</Link>
-                    <Link to="">Blogs</Link>
+                    <Link to="/blog">Blogs</Link>
                   </div>
                 </div>
               </div>
@@ -96,9 +96,9 @@ const Footer = () => {
                   <h5>Accounts</h5>
                   <div className="footer-link">
                     <Link to="">Search</Link>
-                    <Link to="">About Us</Link>
+                    <Link to="/about">About Us</Link>
                     <Link to="">Faq</Link>
-                    <Link to="">Contact</Link>
+                    <Link to="/contact">Contact</Link>
                     <Link to="">Size chart</Link>
                   </div>
                 </div>

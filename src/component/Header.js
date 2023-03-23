@@ -44,7 +44,7 @@ const Header = () => {
               </div>
               <div className="col-lg-6">
                 <div className="user-link">
-                  <Link>
+                  <Link to='compare'>
                     <div className="c-user">
                       <img
                         src="images/compare.svg"
@@ -55,7 +55,7 @@ const Header = () => {
                       <p>Compare Product</p>
                     </div>
                   </Link>
-                  <Link>
+                  <Link to='whishlist'>
                     <div className={["c-user"]}>
                       <img
                         src="images/wishlist.svg"
@@ -66,7 +66,7 @@ const Header = () => {
                       <p>Favourite whichlist</p>
                     </div>
                   </Link>
-                  <Link>
+                  <Link to='/login'>
                     <div className={["c-user"]}>
                       <img
                         src="images/user.svg"
@@ -134,6 +134,7 @@ const Header = () => {
               </div>
               <div className="nav-link">
                 <Link to="/">Home</Link>
+                <Link to='about'>About us</Link>
                 <Link to="/store">Our Store</Link>
                 <Link to="/blog">Blog</Link>
                 <Link to="/contact">contact</Link>

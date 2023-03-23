@@ -6,6 +6,7 @@ import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import EmailIcon from "@mui/icons-material/Email";
 import InfoIcon from "@mui/icons-material/Info";
 import "./styles/Contact.css";
+import Input from "../component/Input";
 const Contact = () => {
   return (
     <React.Fragment>
@@ -29,15 +30,9 @@ const Contact = () => {
                 <div className="col-lg-6">
                   <div className="form-box">
                     <h4>Contact</h4>
-                    <div className="form-group">
-                      <input type="text" placeholder="Name..." />
-                    </div>
-                    <div className="form-group">
-                      <input type="email" placeholder="Email..." />
-                    </div>
-                    <div className="form-group">
-                      <input type="text" placeholder="Mobile Number..." />
-                    </div>
+                    <Input type="text" placeholder="Name..."/>
+                    <Input type="email" placeholder="Email..."/>
+                    <Input type="text" placeholder="Mobile Number..." />
                     <div className="form-group">
                       <textarea rows="5" placeholder="Message..."></textarea>
                     </div>
