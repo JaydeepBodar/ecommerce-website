@@ -29,9 +29,6 @@ const Blog = () => {
                 <div className='col-lg-9'>
                     <div className='row'>
                         <Blogcard />
-                        <Blogcard />
-                        <Blogcard />
-                        <Blogcard />
                     </div>
                 </div>
             </div>

@@ -15,6 +15,7 @@ import Login from './pages/Login';
 import Forgetpassword from './pages/Forgetpassword';
 import Signup from './pages/Signup';
 import Resetpassword from './component/Resetpassword';
+import Singleblog from './pages/Singleblog';
 function App() {
   const router=createBrowserRouter([{
     path:'/',
@@ -23,6 +24,8 @@ function App() {
       index:true,element:<Home />
     },
     {path:'blog',element:<Blog />},
+    {path:'blog/:id',element:<Singleblog/>},
+    {path:'homeblog/:id',element:<Singleblog />},
     {path:'about',element:<About />},
     {path:'contact',element:<Contact />},
     {path:'store',element:<Ourstore/>},

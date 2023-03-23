@@ -421,9 +421,6 @@ const Home = () => {
           </div>
           <div className="row">
             <Blogcard />
-            <Blogcard />
-            <Blogcard />
-            <Blogcard />
           </div>
         </div>
       </section>
