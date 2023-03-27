@@ -5,6 +5,7 @@ import "./styles/Blogcard.css";
 const Blogcard = () => {
   const location = useLocation();
   const [blog, setblog] = useState([]);
+  const[loading,setloading]=useState(true)
   useEffect(() => {
     axios
       .get("https://dummyjson.com/posts")
@@ -12,7 +13,8 @@ const Blogcard = () => {
   }, []);
   return (
     <>
-      {location.pathname==='/blog' ? blog.slice(0, 10).map((value) => {
+      {loading && <h4 style={{textAlign:'center',margin:'10px 0'}}>Loading</h4>}
+      {!loading && location.pathname==='/blog' ? blog.slice(0, 10).map((value) => {
         const { title, body,id } = value;
         return (
           <div

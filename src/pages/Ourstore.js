@@ -6,6 +6,9 @@ import Helmetc from "../component/Helmetc";
 import Productcard from '../component/Productcard'
 const Ourstore = () => {
   const [grid, setgrid] = useState(3);
+  const data=()=>{
+
+  }
   return (
     <React.Fragment>
       <Helmetc title="ourstore" />
@@ -206,6 +209,7 @@ const Ourstore = () => {
                 </div>
               </div>
               <div className="product-list d-flex flex-wrap" style={{rowGap:'10px',columnGap:'10px'}}>
+                <Productcard grid={grid}/>
                 <Productcard grid={grid}/>
                 <Productcard grid={grid}/>
                 <Productcard grid={grid}/>
