@@ -1,13 +1,21 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import Breadcrumb from "../component/Breadcrumb";
 import "./styles/Ourstore.css";
 import ReactStars from "react-stars";
 import Helmetc from "../component/Helmetc";
 import Productcard from '../component/Productcard'
+import { useDispatch, useSelector } from "react-redux";
+import { product } from "../features/Product/productSlice";
 const Ourstore = () => {
-  const [grid, setgrid] = useState(3);
-  const data=()=>{
-
+  const [grid, setgrid] = useState(4);
+  const dispatch=useDispatch()
+  const productdata=useSelector(state=>state.product.product)
+  console.log('fdgfdhgjf',productdata)
+  useEffect(()=>{
+    getAllproduct();
+  },[])
+  const getAllproduct=()=>{
+    dispatch(product())
   }
   return (
     <React.Fragment>
@@ -188,12 +196,6 @@ const Ourstore = () => {
                       onClick={()=>setgrid(4)}
                     />
                     <img
-                      src="images/gr.svg"
-                      alt="grid-img"
-                      className="d-block img-c"
-                      onClick={()=>setgrid(3)}
-                    />
-                    <img
                       src="images/gr4.svg"
                       alt="grid-img"
                       className="d-block img-c"
@@ -209,13 +211,7 @@ const Ourstore = () => {
                 </div>
               </div>
               <div className="product-list d-flex flex-wrap" style={{rowGap:'10px',columnGap:'10px'}}>
-                <Productcard grid={grid}/>
-                <Productcard grid={grid}/>
-                <Productcard grid={grid}/>
-                <Productcard grid={grid}/>
-                <Productcard grid={grid}/>
-                <Productcard grid={grid}/>
-                <Productcard grid={grid}/>
+                {productdata && <Productcard grid={grid} data={productdata}/>}
               </div>
             </div>
           </div>

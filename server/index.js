@@ -5,10 +5,13 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 dotenv.config();
 mongoose.set("strictQuery", false);
+const defaultproduct = require("./defaultproduct");
+const productsdata = require("./Routes/productroute");
 const userloginroutes = require("./Routes/userRoutes");
 app.use(express.json());
 app.use(cors("*"));
 app.use("/user", userloginroutes);
+app.use("/data", productsdata);
 
 app.listen(4500, function check(err) {
   if (err) {
@@ -28,3 +31,4 @@ mongoose.connect(
     }
   }
   );
+  defaultproduct()

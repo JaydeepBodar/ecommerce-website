@@ -67,11 +67,11 @@
 .gr-3{
     width: 24%;
 }
-.gr-12 .product-box{
+.gr-12.product-box{
     display: flex;
-    overflow: hidden;
+    overflow: hidden;   
 }
-.gr-12 .product-box .action-bar{
+.gr-12.product-box .action-bar{
     top: 15%;
     left:20%;
     transition: all 0.5s;
@@ -80,13 +80,16 @@
 .product-box:hover .action-bar{
     opacity: 1;
 }
-.gr-12 .product-box .whichlist{
+.gr-12.product-box .product-img{
+    padding: 15px;
+}
+.gr-12.product-box .whichlist{
     left: 20%;
 }
-.gr-12 .product-box .productdetails {
+.gr-12.product-box .productdetails {
     padding: 15px 25px;
 }
-.gr-12 .product-box .product-img img{
+.gr-12.product-box .product-img img{
     width: 170px;
 }
 .gr-12 .description{
