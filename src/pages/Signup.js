@@ -24,7 +24,6 @@ const Signup = () => {
     }),
     onSubmit:(values,action)=>{
       dispatch(registeUser(values))
-      console.log(values)
       action.resetForm();
     }
   })

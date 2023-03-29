@@ -7,9 +7,9 @@ const register=async(userData)=>{
     }   
 }
 const login=async(newuserData)=>{
-    const resp=await axios.post(`${log_url}/login`,newuserData);
-    if(resp.data){
-        return resp.data
+    const newresp=await axios.post(`${log_url}/login`,newuserData);
+    if(newresp.data){
+        return newresp.data
     }   
 }
 export const authService={
