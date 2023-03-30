@@ -1,22 +1,13 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Breadcrumb from "../component/Breadcrumb";
 import "./styles/Ourstore.css";
 import ReactStars from "react-stars";
 import Helmetc from "../component/Helmetc";
-import Productcard from '../component/Productcard'
+import Productcard from "../component/Productcard";
 import { useDispatch, useSelector } from "react-redux";
 import { product } from "../features/Product/productSlice";
 const Ourstore = () => {
   const [grid, setgrid] = useState(4);
-  const dispatch=useDispatch()
-  const productdata=useSelector(state=>state.product.product)
-  console.log('fdgfdhgjf',productdata)
-  useEffect(()=>{
-    getAllproduct();
-  },[])
-  const getAllproduct=()=>{
-    dispatch(product())
-  }
   return (
     <React.Fragment>
       <Helmetc title="ourstore" />
@@ -188,30 +179,36 @@ const Ourstore = () => {
                 </div>
                 <div className="d-flex" style={{ columnGap: "10px" }}>
                   <p>21 Products</p>
-                  <div className="d-flex align-items-center" style={{columnGap:'10px'}}>
+                  <div
+                    className="d-flex align-items-center"
+                    style={{ columnGap: "10px" }}
+                  >
                     <img
                       src="images/gr3.svg"
                       alt="grid-img"
                       className="d-block img-c"
-                      onClick={()=>setgrid(4)}
+                      onClick={() => setgrid(4)}
                     />
                     <img
                       src="images/gr4.svg"
                       alt="grid-img"
                       className="d-block img-c"
-                      onClick={()=>setgrid(6)}
+                      onClick={() => setgrid(6)}
                     />
                     <img
                       src="images/gr2.svg"
                       alt="grid-img"
                       className="d-block img-c"
-                      onClick={()=>setgrid(12)}
+                      onClick={() => setgrid(12)}
                     />
                   </div>
                 </div>
               </div>
-              <div className="product-list d-flex flex-wrap" style={{rowGap:'10px',columnGap:'10px'}}>
-                {productdata && <Productcard grid={grid} data={productdata}/>}
+              <div
+                className="product-list d-flex flex-wrap"
+                style={{ rowGap: "10px", columnGap: "10px" }}
+              >
+                <Productcard grid={grid} />
               </div>
             </div>
           </div>

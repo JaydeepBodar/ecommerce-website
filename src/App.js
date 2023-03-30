@@ -16,6 +16,7 @@ import Forgetpassword from './pages/Forgetpassword';
 import Signup from './pages/Signup';
 import Resetpassword from './component/Resetpassword';
 import Singleblog from './pages/Singleblog';
+import SingleProduct from './pages/SingleProduct';
 function App() {
   const router=createBrowserRouter([{
     path:'/',
@@ -29,6 +30,8 @@ function App() {
     {path:'about',element:<About />},
     {path:'contact',element:<Contact />},
     {path:'store',element:<Ourstore/>},
+    {path:'store/:id',element:<SingleProduct/>},
+    {path:'product/:id',element:<SingleProduct/>},
     {path:'compare',element:<Compareproduct/>},
     {path:'whishlist',element:<Whichlist/>},
     {path:'login',element:<Login/>},

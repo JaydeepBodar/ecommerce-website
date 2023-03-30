@@ -10,6 +10,7 @@ const productschema = mongoose.Schema({
   brand: String,
   category: String,
   thumbnail: String,
+  popular:String,
   images: [String],
 });
 module.exports=mongoose.model('product',productschema)

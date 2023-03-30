@@ -1,5 +1,6 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
+import { useSelector } from "react-redux";
 import Blogcard from "../component/Blogcard";
 import Productcard from "../component/Productcard";
 import Specialproduct from "../component/Specialproduct";
@@ -288,10 +289,7 @@ const Home = () => {
           <div className="section-title">
             <h2>Our Products</h2>
           </div>
-          <div className="row">
-            <Productcard />
-            <Productcard />
-            <Productcard />
+          <div className="row" style={{gap:'10px'}}>
             <Productcard />
           </div>
         </div>
@@ -314,10 +312,7 @@ const Home = () => {
           <div className="section-title">
             <h2>Our Popular Products</h2>
           </div>
-          <div className="row">
-            <Productcard />
-            <Productcard />
-            <Productcard />
+          <div className="row flex-wrap-wrap" style={{gap:'10px'}}>
             <Productcard />
           </div>
         </div>

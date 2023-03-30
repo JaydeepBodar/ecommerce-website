@@ -1,10 +1,10 @@
 
 .product-box .product-img img{
-    width: 100%;
     transition: all 0.5s;
     border-radius: 15px 15px 0  0;
     background-size: cover;
     height: 240px;
+    width: 100%;
 }
 
 .product-box p{
@@ -50,6 +50,10 @@
 .product-box:hover .product-img img:last-child{
     display: block;
     transition: all 0.5s;
+}
+.new-pbox.col-lg-3{
+    padding: 0 ;
+    width: 24%;
 }
 .product-box:hover .product-img img:nth-child(1){
     display: none;

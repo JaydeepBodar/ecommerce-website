@@ -14,8 +14,8 @@ const Singleblog = () => {
   }, []);
   return (
     <React.Fragment>
-      <Helmetc title="dynamic-blog" />
-      <Breadcrumb title="dynamic-blog" />
+      <Helmetc title="blog-details" />
+      <Breadcrumb title="blog-details" />
       <div className="blog-section">
         <div className="container">
           <div className="row">
