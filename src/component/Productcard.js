@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { product } from "../features/Product/productSlice";
 import { Link, useLocation } from "react-router-dom";
 import "./styles/Productcard.css";
-const Productcard = ({ grid }) => {
+const Productcard = ({ grid,newdata }) => {
   const location = useLocation();
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.product.isLoading);
@@ -17,6 +17,7 @@ const Productcard = ({ grid }) => {
   const getAllproduct = () => {
     dispatch(product());
   };
+  newdata(productdata)
   return (
     <React.Fragment>
       <div className="error w-100">
@@ -97,7 +98,7 @@ const Productcard = ({ grid }) => {
           })
       }
        {!isError && !loading && location.pathname === "/"
-        && productdata && productdata.slice(0, 20).map((value, index) => {
+        && productdata && productdata.slice(0,).map((value, index) => {
             const {
               id,
               title,

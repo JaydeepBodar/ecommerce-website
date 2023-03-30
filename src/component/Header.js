@@ -22,7 +22,7 @@ const Header = () => {
           <div className="main-nav">
             <div className="row">
               <div className="col-lg-2">
-                <h2>DevShop</h2>
+                <Link to='/' style={{textDecoration:'none',color:'#fff'}}><h2>DevShop</h2></Link>
               </div>
               <div className="col-lg-4 pt-2">
                 <div class="input-group mb-3">

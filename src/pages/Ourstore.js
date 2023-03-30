@@ -8,6 +8,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { product } from "../features/Product/productSlice";
 const Ourstore = () => {
   const [grid, setgrid] = useState(4);
+  const data=(newdata)=>{
+
+  }
   return (
     <React.Fragment>
       <Helmetc title="ourstore" />
@@ -208,7 +211,7 @@ const Ourstore = () => {
                 className="product-list d-flex flex-wrap"
                 style={{ rowGap: "10px", columnGap: "10px" }}
               >
-                <Productcard grid={grid} />
+                <Productcard grid={grid} newdata={data}/>
               </div>
             </div>
           </div>
