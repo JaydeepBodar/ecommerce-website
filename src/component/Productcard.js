@@ -18,8 +18,7 @@ const Productcard = (props) => {
   useEffect(() => {
     getAllproduct();
   }, [location]);
-  location.pathname === "/store" && props.newdata(productdata)
-  // console.log('dfffd',location.pathname === "/store" && )
+  location.pathname === "/store" && props.newdata([...productdata])
   return (
     <React.Fragment>
       <div className="error w-100">

@@ -13,11 +13,11 @@ app.use(cors("*"));
 app.use("/user", userloginroutes);
 app.use("/data", productsdata);
 
-app.listen(4500, function check(err) {
+app.listen(5000, function check(err) {
   if (err) {
     console.log("error");
   } else {
-    console.log("started your server on port 4100");
+    console.log("started your server on port 5000");
   }
 });
 mongoose.connect(

@@ -4,21 +4,37 @@ import "./styles/Ourstore.css";
 import ReactStars from "react-stars";
 import Helmetc from "../component/Helmetc";
 import Productcard from "../component/Productcard";
-const Ourstore = () => {
+const Ourstore = (newarg) => {
   const [grid, setgrid] = useState(4);
-  const [sortOrder, setSortOrder] = useState('ascending');
+  // const [sortType, setSortType] = useState("");
+  // const [sortOrder, setSortOrder] = useState("asc");
 
-  const data=(newarg,sortOrder)=>{
-    switch(sortOrder) {
-      case 'price':
-        return [...newarg].sort((a, b) => sortOrder === 'ascending' ? a.price - b.price : b.price - a.price);
-        case 'alphabetical':
-        return [...newarg].sort((a, b) => sortOrder === 'ascending' ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title));
-      default:
-        return [...newarg];
-    }
-  } 
- 
+  console.log("object", newarg);
+  // const [sortOptions, setSortOptions] = useState({
+  //   price: { direction: "asc" },
+  //   title: { direction: "asc" },
+  // });
+  // const sortData = (newarg) => {
+  //   return newarg.sort((a, b) => {
+  //     if (sortOptions.price.direction === "asc") {
+  //       if (a.price < b.price) return -1;
+  //       if (a.price > b.price) return 1;
+  //     } else {
+  //       if (a.price > b.price) return -1;
+  //       if (a.price < b.price) return 1;
+  //     }
+
+  //     if (sortOptions.title.direction === "asc") {
+  //       if (a.title < b.title) return -1;
+  //       if (a.title > b.title) return 1;
+  //     } else {
+  //       if (a.title > b.title) return -1;
+  //       if (a.title < b.title) return 1;
+  //     }
+
+  //     return 0;
+  //   });
+  // };
   return (
     <React.Fragment>
       <Helmetc title="ourstore" />
@@ -179,15 +195,25 @@ const Ourstore = () => {
                       backgroundColor: "#fff",
                       borderRadius: "10px",
                     }}
-                    value={sortOrder}
-                    onChange={e=>setSortOrder(e.target.value)}
+                    // value={sortOrder}
+                    // onChange={(e) => {
+                    //   const [price, direction] = e.target.value.split("_");
+                    //   setSortOptions({
+                    //     ...sortOptions,
+                    //     [price]: { direction },
+                    //   });
+                    // }}
                   >
-                    {/* <option value="price-accending">Price, low to high</option> */}
-                    {/* <option value="price-decending">Price, high to low</option> */}
-                    <option value="price" name='asc'>Alphabetically, A-Z</option>
-                    <option value="ascending" name='dsc'>Alphabetically, Z-A</option>
-                    {/* <option value="price-accending">Date,old to new </option> */}
-                    {/* <option value="price-accending">Date,new to old</option> */}
+                    <option value="price-accending">Price, low to high</option>
+                    <option value="price-decending">Price, high to low</option>
+                    <option value="price" name="asc">
+                      Alphabetically, A-Z
+                    </option>
+                    <option value="ascending" name="dsc">
+                      Alphabetically, Z-A
+                    </option>
+                    <option value="price-accending">Date,old to new </option>
+                    <option value="price-accending">Date,new to old</option>
                   </select>
                 </div>
                 <div className="d-flex" style={{ columnGap: "10px" }}>
@@ -221,7 +247,7 @@ const Ourstore = () => {
                 className="product-list d-flex flex-wrap"
                 style={{ rowGap: "10px", columnGap: "10px" }}
               >
-                <Productcard grid={grid} newdata={data}/>
+                <Productcard grid={grid} newdata={Ourstore} />
               </div>
             </div>
           </div>
