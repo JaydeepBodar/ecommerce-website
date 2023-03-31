@@ -21,7 +21,7 @@ const Blogcard = () => {
         ? blog.slice(0, 10).map((value) => {
             const { title, body, id } = value;
             return (
-              <div className="col-lg-6">
+              <div className="col-lg-6 newbox">
                 <div className="blog-box">
                   <div className="blog-img">
                     <img src="images/blog-1.jpg" alt="blog-img" />

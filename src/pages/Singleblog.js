@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Breadcrumb from "../component/Breadcrumb";
 import Helmetc from "../component/Helmetc";
 import "./styles/blog.css";
 const Singleblog = () => {
   const { id } = useParams();
+  const location=useLocation()
   const [blog, setblog] = useState([]);
+  const navigate=useNavigate()
   useEffect(() => {
     axios
       .get(`https://dummyjson.com/posts/${id}`)
@@ -37,12 +39,13 @@ const Singleblog = () => {
             <div className="col-lg-9">
               <div className="blog-box">
                 <div className="blog-img">
-                  <img src="images/blog-1.jpg" alt="blog-img" />
+                  <img src="https://images.pexels.com/photos/262508/pexels-photo-262508.jpeg?cs=srgb&dl=pexels-pixabay-262508.jpg&fm=jpg" alt="blog-img" />
                 </div>
                 <div className="blog-content">
                   <h5>User id:- {blog.userId}</h5>
                   <h5>Blog Title :- {blog.title}</h5>
                   <h6>Description :- {blog.body}</h6>
+                  <button className="button" onClick={()=>{location.pathname === `/blog/${id}` ? navigate('/blog') : navigate('/')}}>back</button>
                 </div>
               </div>
             </div>

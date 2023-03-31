@@ -12,6 +12,11 @@
     background-color: #fff;
     border-radius: 15px;
     margin-bottom: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    justify-content: space-between;
 }
 .blog-box .blog-content{
     padding: 15px;
@@ -33,4 +38,9 @@
     border-radius: 30px;
     font-weight: 500;
     font-size: 13px;
+}
+.newbox{
+    display: flex;
+    flex-direction: column;
+    height: auto;
 }

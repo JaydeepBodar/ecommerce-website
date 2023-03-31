@@ -4,13 +4,21 @@ import "./styles/Ourstore.css";
 import ReactStars from "react-stars";
 import Helmetc from "../component/Helmetc";
 import Productcard from "../component/Productcard";
-import { useDispatch, useSelector } from "react-redux";
-import { product } from "../features/Product/productSlice";
 const Ourstore = () => {
   const [grid, setgrid] = useState(4);
-  const data=(newdata)=>{
+  const [sortOrder, setSortOrder] = useState('ascending');
 
-  }
+  const data=(newarg,sortOrder)=>{
+    switch(sortOrder) {
+      case 'price':
+        return [...newarg].sort((a, b) => sortOrder === 'ascending' ? a.price - b.price : b.price - a.price);
+        case 'alphabetical':
+        return [...newarg].sort((a, b) => sortOrder === 'ascending' ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title));
+      default:
+        return [...newarg];
+    }
+  } 
+ 
   return (
     <React.Fragment>
       <Helmetc title="ourstore" />
@@ -171,13 +179,15 @@ const Ourstore = () => {
                       backgroundColor: "#fff",
                       borderRadius: "10px",
                     }}
+                    value={sortOrder}
+                    onChange={e=>setSortOrder(e.target.value)}
                   >
-                    <option value="price-accending">Price, low to high</option>
-                    <option value="price-decending">Price, high to low</option>
-                    <option value="price-accending">Alphabetically, A-Z</option>
-                    <option value="price-accending">Alphabetically, Z-A</option>
-                    <option value="price-accending">Date,old to new </option>
-                    <option value="price-accending">Date,new to old</option>
+                    {/* <option value="price-accending">Price, low to high</option> */}
+                    {/* <option value="price-decending">Price, high to low</option> */}
+                    <option value="price" name='asc'>Alphabetically, A-Z</option>
+                    <option value="ascending" name='dsc'>Alphabetically, Z-A</option>
+                    {/* <option value="price-accending">Date,old to new </option> */}
+                    {/* <option value="price-accending">Date,new to old</option> */}
                   </select>
                 </div>
                 <div className="d-flex" style={{ columnGap: "10px" }}>

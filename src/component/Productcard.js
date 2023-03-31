@@ -4,20 +4,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { product } from "../features/Product/productSlice";
 import { Link, useLocation } from "react-router-dom";
 import "./styles/Productcard.css";
-const Productcard = ({ grid,newdata }) => {
+const Productcard = (props) => {
   const location = useLocation();
+  console.log('fdffdd',location)
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.product.isLoading);
   const isError = useSelector((state) => state.product.isError);
   const productdata = useSelector((state) => state.product.product);
   console.log("fdgfdhgjf", productdata);
-  useEffect(() => {
-    getAllproduct();
-  }, []);
   const getAllproduct = () => {
     dispatch(product());
   };
-  newdata(productdata)
+  useEffect(() => {
+    getAllproduct();
+  }, [location]);
+  location.pathname === "/store" && props.newdata(productdata)
+  // console.log('dfffd',location.pathname === "/store" && )
   return (
     <React.Fragment>
       <div className="error w-100">
@@ -46,7 +48,7 @@ const Productcard = ({ grid,newdata }) => {
             } = value;
             return (
               <Link
-                className={`gr-${grid} product-box`}
+                className={`gr-${props.grid} product-box`}
                 to={`${id}`}
                 key={index}
               >
@@ -69,7 +71,7 @@ const Productcard = ({ grid,newdata }) => {
                   />
                   <p
                     className={`description ${
-                      grid === 12 ? "d-block" : "d-none"
+                      props.grid === 12 ? "d-block" : "d-none"
                     }`}
                   >
                     Lorem Ipsum is simply dummy text of the printing and
