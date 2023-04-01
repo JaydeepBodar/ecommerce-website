@@ -1,9 +1,9 @@
 const express = require("express");
 const app = express();
-const dotenv = require("dotenv");
+const dotenv = require("dotenv").config();
 const cors = require("cors");
 const mongoose = require("mongoose");
-dotenv.config();
+// dotenv.config();
 mongoose.set("strictQuery", false);
 const defaultproduct = require("./defaultproduct");
 const productsdata = require("./Routes/productroute");
@@ -20,11 +20,11 @@ app.listen(5000, function check(err) {
     console.log("started your server on port 5000");
   }
 });
-mongoose.connect(
-  process.env.database,
+console.log(process.env.DATABASE)
+mongoose.connect(process.env.DATABASE,
   { useNewUrlParser: true, useUnifiedTopology: true },function check(err){
     if(err){
-      console.log('database not connected')
+      console.log('database not connected',err)
     }
     else{
       console.log('database connected successfully')

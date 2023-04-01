@@ -4,12 +4,32 @@ import "./styles/Ourstore.css";
 import ReactStars from "react-stars";
 import Helmetc from "../component/Helmetc";
 import Productcard from "../component/Productcard";
-const Ourstore = (newarg) => {
+const Ourstore = () => {
+  const [product, setProduct] = useState([]);
   const [grid, setgrid] = useState(4);
   // const [sortType, setSortType] = useState("");
   // const [sortOrder, setSortOrder] = useState("asc");
 
-  console.log("object", newarg);
+  const sortoption = [
+    { label: "Price, low to high", value: "price-accending", code: 1 },
+    { label: "Price, high to low", value: "price-decending", code: 2 },
+    { label: "Alphabetically, A-Z", value: "", code: 3 },
+    { label: "Alphabetically, Z-A", value: "price-decending", code: 4 },
+  ];
+
+  const setProducts = (products) => {
+    console.log("products", products);
+    setProduct(products);
+  };
+
+  useEffect(() => {
+    if (product.length) {
+      product.forEach((p) => console.log('p.title', p.title));
+    }
+  }, [product]);
+
+
+
   // const [sortOptions, setSortOptions] = useState({
   //   price: { direction: "asc" },
   //   title: { direction: "asc" },
@@ -204,16 +224,10 @@ const Ourstore = (newarg) => {
                     //   });
                     // }}
                   >
-                    <option value="price-accending">Price, low to high</option>
-                    <option value="price-decending">Price, high to low</option>
-                    <option value="price" name="asc">
-                      Alphabetically, A-Z
-                    </option>
-                    <option value="ascending" name="dsc">
-                      Alphabetically, Z-A
-                    </option>
-                    <option value="price-accending">Date,old to new </option>
-                    <option value="price-accending">Date,new to old</option>
+                    {sortoption.map((val) => {
+                      const { value, label, code } = val;
+                      return <option value={value}>{label}</option>;
+                    })}
                   </select>
                 </div>
                 <div className="d-flex" style={{ columnGap: "10px" }}>
@@ -247,7 +261,7 @@ const Ourstore = (newarg) => {
                 className="product-list d-flex flex-wrap"
                 style={{ rowGap: "10px", columnGap: "10px" }}
               >
-                <Productcard grid={grid} newdata={Ourstore} />
+                <Productcard grid={grid} setProducts={setProducts} />
               </div>
             </div>
           </div>
