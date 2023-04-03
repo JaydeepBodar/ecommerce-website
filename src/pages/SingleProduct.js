@@ -1,12 +1,14 @@
 import React from "react";
 import ReactStars from "react-stars";
-import { useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Breadcrumb from "../component/Breadcrumb";
 import Helmetc from "../component/Helmetc";
 import { pro_url } from "../utils/axiosConfig";
 import useFetch from "../utils/useFetch";
 import "./styles/blog.css";
 const SingleProduct = () => {
+  const navigate=useNavigate()
+  const location=useLocation();
   const { id } = useParams();
   const{data,isError,loading}=useFetch(`${pro_url}/product/${id}`)
   const {
@@ -74,6 +76,10 @@ const SingleProduct = () => {
                           />
                         </h6>
                         <p>Features :- {description}</p>
+                        <div className="single-btn">
+                          <button className="button">Add Cart</button>
+                          <button className="button" onClick={()=>{location.pathname === `/store/${id}` ? navigate('/store') : navigate('/')}}>Cancle</button>
+                        </div>
                       </div>
                     </div>
                   </div>
