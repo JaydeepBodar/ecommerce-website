@@ -1,28 +1,9 @@
 import React, { useEffect } from "react";
 import ReactStars from "react-stars";
-import { useDispatch, useSelector } from "react-redux";
-import { product } from "../features/Product/productSlice";
 import { Link, useLocation } from "react-router-dom";
 import "./styles/Productcard.css";
-const Productcard = (props) => {
+const Productcard = ({data,productdata,grid,isError,loading}) => {
   const location = useLocation();
-  const dispatch = useDispatch();
-  const loading = useSelector((state) => state.product.isLoading);
-  const isError = useSelector((state) => state.product.isError);
-  const productdata = useSelector((state) => state.product.product);
-  const getAllproduct = () => {
-    dispatch(product());
-  };
-  useEffect(() => {
-    getAllproduct();
-  }, [location]);
-
-  useEffect(() => {
-    if (location.pathname === "/store") {
-      console.log("productdata", productdata);
-      props.setProducts(productdata);
-    }
-  }, [productdata]);
   return (
     <React.Fragment>
       <div className="error w-100">
@@ -38,7 +19,6 @@ const Productcard = (props) => {
       {!isError &&
         !loading &&
         location.pathname === "/store" &&
-        productdata &&
         productdata.map((value, index) => {
           const {
             id,
@@ -53,7 +33,7 @@ const Productcard = (props) => {
           } = value;
           return (
             <Link
-              className={`gr-${props.grid} product-box`}
+              className={`gr-${grid} product-box`}
               to={`${id}`}
               key={index}
             >
@@ -76,7 +56,7 @@ const Productcard = (props) => {
                 />
                 <p
                   className={`description ${
-                    props.grid === 12 ? "d-block" : "d-none"
+                    grid === 12 ? "d-block" : "d-none"
                   }`}
                 >
                   Lorem Ipsum is simply dummy text of the printing and
@@ -106,8 +86,7 @@ const Productcard = (props) => {
       {!isError &&
         !loading &&
         location.pathname === "/" &&
-        productdata &&
-        productdata.slice(0).map((value, index) => {
+        data.map((value, index) => {
           const {
             id,
             title,

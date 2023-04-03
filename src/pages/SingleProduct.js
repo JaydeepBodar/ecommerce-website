@@ -1,22 +1,14 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 import ReactStars from "react-stars";
 import { useParams } from "react-router-dom";
 import Breadcrumb from "../component/Breadcrumb";
 import Helmetc from "../component/Helmetc";
-import { singleproduct } from "../features/Product/productSlice";
+import { pro_url } from "../utils/axiosConfig";
+import useFetch from "../utils/useFetch";
 import "./styles/blog.css";
 const SingleProduct = () => {
   const { id } = useParams();
-  const dispatch = useDispatch();
-  const isError = useSelector((state) => state.singleproduct.isError);
-  const loading = useSelector((state) => state.singleproduct.isLoading);
-  const singleproductdata = useSelector(
-    (state) => state.singleproduct.singleproduct
-  );
-  const getindividualproduct = () => {
-    dispatch(singleproduct(id));
-  };
+  const{data,isError,loading}=useFetch(`${pro_url}/product/${id}`)
   const {
     title,
     brand,
@@ -27,11 +19,8 @@ const SingleProduct = () => {
     rating,
     thumbnail,
     images,
-  } = singleproductdata;
-  useEffect(() => {
-    getindividualproduct();
-  }, []);
-  console.log("data", singleproductdata);
+  } =data;
+
   return (
     <React.Fragment>
       <Helmetc title="product-details" />

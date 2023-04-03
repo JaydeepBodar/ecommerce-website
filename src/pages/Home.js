@@ -1,11 +1,16 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
-import { useSelector } from "react-redux";
+import useFetch from "../utils/useFetch";
 import Blogcard from "../component/Blogcard";
 import Productcard from "../component/Productcard";
 import Specialproduct from "../component/Specialproduct";
+import { pro_url } from "../utils/axiosConfig";
 import "./styles/Home.css";
 const Home = () => {
+  const{data,isError,loading}=useFetch(`${pro_url}/product`)
+  const populardata=data.filter(p=>p.popular === 'true')
+  const randomproduct=data.filter(p=>p.price > 549)
+  console.log('data',randomproduct)
   return (
     <React.Fragment>
       <section className="banner-section">
@@ -290,7 +295,7 @@ const Home = () => {
             <h2>Our Products</h2>
           </div>
           <div className="row" style={{gap:'10px'}}>
-            <Productcard />
+            <Productcard data={randomproduct} isError={isError} loading={loading}/>
           </div>
         </div>
       </section>
@@ -313,7 +318,7 @@ const Home = () => {
             <h2>Our Popular Products</h2>
           </div>
           <div className="row flex-wrap-wrap" style={{gap:'10px'}}>
-            <Productcard />
+            <Productcard data={populardata} isError={isError} loading={loading} />
           </div>
         </div>
       </section>

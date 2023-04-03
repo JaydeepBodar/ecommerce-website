@@ -3,58 +3,40 @@ import Breadcrumb from "../component/Breadcrumb";
 import "./styles/Ourstore.css";
 import ReactStars from "react-stars";
 import Helmetc from "../component/Helmetc";
+import useFetch from "../utils/useFetch";
+// import { product } from "../features/Product/productSlice";
 import Productcard from "../component/Productcard";
+import axios from "axios";
+import { pro_url } from "../utils/axiosConfig";
+// import { useSelector,useDispatch } from "react-redux";
 const Ourstore = () => {
-  const [product, setProduct] = useState([]);
+  // const [product, setProduct] = useState([]);
+  const{data,isError,loading}=useFetch(`${pro_url}/product`)
   const [grid, setgrid] = useState(4);
-  // const [sortType, setSortType] = useState("");
-  // const [sortOrder, setSortOrder] = useState("asc");
-
+  const [sortOption, setSortOption] = useState("");
   const sortoption = [
-    { label: "Price, low to high", value: "price-accending", code: 1 },
-    { label: "Price, high to low", value: "price-decending", code: 2 },
-    { label: "Alphabetically, A-Z", value: "", code: 3 },
+    { label:'filter-product',value:'default'},
+    { label: "Price, low to high", value: "alphabetic-accending", code: 1 },
+    { label: "Price, high to low", value: "alphabetic-decending", code: 2 },
+    { label: "Alphabetically, A-Z", value: "price-accending", code: 3 },
     { label: "Alphabetically, Z-A", value: "price-decending", code: 4 },
   ];
-
-  const setProducts = (products) => {
-    console.log("products", products);
-    setProduct(products);
-  };
-
-  useEffect(() => {
-    if (product.length) {
-      product.forEach((p) => console.log('p.title', p.title));
-    }
-  }, [product]);
-
-
-
-  // const [sortOptions, setSortOptions] = useState({
-  //   price: { direction: "asc" },
-  //   title: { direction: "asc" },
-  // });
-  // const sortData = (newarg) => {
-  //   return newarg.sort((a, b) => {
-  //     if (sortOptions.price.direction === "asc") {
-  //       if (a.price < b.price) return -1;
-  //       if (a.price > b.price) return 1;
-  //     } else {
-  //       if (a.price > b.price) return -1;
-  //       if (a.price < b.price) return 1;
-  //     }
-
-  //     if (sortOptions.title.direction === "asc") {
-  //       if (a.title < b.title) return -1;
-  //       if (a.title > b.title) return 1;
-  //     } else {
-  //       if (a.title > b.title) return -1;
-  //       if (a.title < b.title) return 1;
-  //     }
-
-  //     return 0;
-  //   });
-  // };
+  const sortdata= data.sort((a, b) => {  
+    // console.log('data',a)
+    if(sortOption === "price-accending") {
+    return a.price - b.price;
+  } else if (sortOption === "price-decending") {
+    return b.price - a.price;
+  } else if (sortOption === "alphabetic-accending") {
+    return a.title.localeCompare(b.title);
+  } else if (sortOption === "alphabetic-decending") {
+    return b.title.localeCompare(a.title);
+  }else if(sortOption === 'default'){
+    return a; // default case, no sorting}
+  }
+});
+  // const data=productdata && productdata.sort((a,b)=>a.price - b.price ? -1 : 1)
+  // console.log('data',data)
   return (
     <React.Fragment>
       <Helmetc title="ourstore" />
@@ -71,7 +53,7 @@ const Ourstore = () => {
                       <li>Watch</li>
                       <li>Tv</li>
                       <li>Camera</li>
-                      <li>Laptops</li>
+                      <li >Laptops</li>
                     </ul>
                   </div>
                 </div>
@@ -215,6 +197,8 @@ const Ourstore = () => {
                       backgroundColor: "#fff",
                       borderRadius: "10px",
                     }}
+                    value={sortOption}
+                    onChange={(e)=>setSortOption(e.target.value)}
                     // value={sortOrder}
                     // onChange={(e) => {
                     //   const [price, direction] = e.target.value.split("_");
@@ -261,7 +245,7 @@ const Ourstore = () => {
                 className="product-list d-flex flex-wrap"
                 style={{ rowGap: "10px", columnGap: "10px" }}
               >
-                <Productcard grid={grid} setProducts={setProducts} />
+                <Productcard grid={grid} productdata={sortdata} loading={loading} isError={isError}/>
               </div>
             </div>
           </div>
