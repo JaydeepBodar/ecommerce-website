@@ -16,10 +16,10 @@ const Ourstore = () => {
   const [sortOption, setSortOption] = useState("");
   const sortoption = [
     { label:'filter-product',value:'default'},
-    { label: "Price, low to high", value: "alphabetic-accending", code: 1 },
-    { label: "Price, high to low", value: "alphabetic-decending", code: 2 },
-    { label: "Alphabetically, A-Z", value: "price-accending", code: 3 },
-    { label: "Alphabetically, Z-A", value: "price-decending", code: 4 },
+    { label: "Price, low to high", value: "price-accending", code: 1 },
+    { label: "Price, high to low", value: "price-decending", code: 2 },
+    { label: "Alphabetically, A-Z", value: "alphabetic-accending", code: 3 },
+    { label: "Alphabetically, Z-A", value: "alphabetic-decending", code: 4 },
   ];
   const sortdata= data.sort((a, b) => {  
     // console.log('data',a)
