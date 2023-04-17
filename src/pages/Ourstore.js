@@ -1,42 +1,44 @@
 import React, { useState, useEffect } from "react";
 import Breadcrumb from "../component/Breadcrumb";
+import Pagination from "../pages/Pagination";
 import "./styles/Ourstore.css";
 import ReactStars from "react-stars";
 import Helmetc from "../component/Helmetc";
 import useFetch from "../utils/useFetch";
-// import { product } from "../features/Product/productSlice";
 import Productcard from "../component/Productcard";
 import axios from "axios";
 import { pro_url } from "../utils/axiosConfig";
-// import { useSelector,useDispatch } from "react-redux";
 const Ourstore = () => {
-  // const [product, setProduct] = useState([]);
-  const{data,isError,loading}=useFetch(`${pro_url}/product`)
+  const { data, isError, loading } = useFetch(`${pro_url}/product`);
   const [grid, setgrid] = useState(4);
   const [sortOption, setSortOption] = useState("");
   const sortoption = [
-    { label:'filter-product',value:'default'},
+    { label: "filter-product", value: "default", code: 0 },
     { label: "Price, low to high", value: "price-accending", code: 1 },
     { label: "Price, high to low", value: "price-decending", code: 2 },
     { label: "Alphabetically, A-Z", value: "alphabetic-accending", code: 3 },
     { label: "Alphabetically, Z-A", value: "alphabetic-decending", code: 4 },
   ];
-  const sortdata= data.sort((a, b) => {  
+  // pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(6);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const sortdata = data.sort((a, b) => {
     // console.log('data',a)
-    if(sortOption === "price-accending") {
-    return a.price - b.price;
-  } else if (sortOption === "price-decending") {
-    return b.price - a.price;
-  } else if (sortOption === "alphabetic-accending") {
-    return a.title.localeCompare(b.title);
-  } else if (sortOption === "alphabetic-decending") {
-    return b.title.localeCompare(a.title);
-  }else if(sortOption === 'default'){
-    return a; // default case, no sorting}
-  }
-});
-  // const data=productdata && productdata.sort((a,b)=>a.price - b.price ? -1 : 1)
-  // console.log('data',data)
+    if (sortOption === "price-accending") {
+      return a.price - b.price;
+    } else if (sortOption === "price-decending") {
+      return b.price - a.price;
+    } else if (sortOption === "alphabetic-accending") {
+      return a.title.localeCompare(b.title);
+    } else if (sortOption === "alphabetic-decending") {
+      return b.title.localeCompare(a.title);
+    } else if (sortOption === "default") {
+      return b; // default case, no sorting}
+    }
+  });
+  const newdata = sortdata.slice(indexOfFirstItem, indexOfLastItem);
   return (
     <React.Fragment>
       <Helmetc title="ourstore" />
@@ -53,7 +55,7 @@ const Ourstore = () => {
                       <li>Watch</li>
                       <li>Tv</li>
                       <li>Camera</li>
-                      <li >Laptops</li>
+                      <li>Laptops</li>
                     </ul>
                   </div>
                 </div>
@@ -198,7 +200,7 @@ const Ourstore = () => {
                       borderRadius: "10px",
                     }}
                     value={sortOption}
-                    onChange={(e)=>setSortOption(e.target.value)}
+                    onChange={(e) => setSortOption(e.target.value)}
                     // value={sortOrder}
                     // onChange={(e) => {
                     //   const [price, direction] = e.target.value.split("_");
@@ -245,7 +247,20 @@ const Ourstore = () => {
                 className="product-list d-flex flex-wrap"
                 style={{ rowGap: "10px", columnGap: "10px" }}
               >
-                <Productcard grid={grid} productdata={sortdata} loading={loading} isError={isError}/>
+                <Productcard
+                  grid={grid}
+                  productdata={newdata}
+                  loading={loading}
+                  isError={isError}
+                />
+                <div style={{flex:'0 0 100%'}}>
+                <Pagination
+                  itemsPerPage={itemsPerPage}
+                  totalItems={sortdata.length}
+                  currentPage={currentPage}
+                  onPageChange={setCurrentPage}
+                />
+                </div>
               </div>
             </div>
           </div>
